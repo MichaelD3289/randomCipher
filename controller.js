@@ -1,16 +1,19 @@
 module.exports = {
+  // creating the cipher
   createCipher: (str) => {
+    // array the cipher will be pushed too
     let cipher = [];
+    // array used to randomly assing up or down to the charset num
     let directionArr = ['u', 'd'];
     let encodedCharArr = [];
     let newCharCode;
-  
+
     for(let letter in str) {
       let randomNum = Math.floor((Math.random() * 11));
       let randomDir = directionArr[Math.floor(Math.random() * 2)];
         
       let cipherValue;
-      // cipher.push(cipherValue);
+    
       let charCode = str.charCodeAt(letter);
    
       if(randomDir === "u") {
@@ -57,9 +60,9 @@ module.exports = {
     
    return cipher;
   },
+  // creating the encrypted string
   encrptStr: (str, arr) => {
     let cipher = [];
-    let directionArr = ['u', 'd'];
     let encodedCharArr = [];
     let newCharCode;
   
@@ -68,7 +71,7 @@ module.exports = {
       let randomDir = arr[letter].split('-')[1];
         
       let cipherValue;
-      // cipher.push(cipherValue);
+  
       let charCode = str.charCodeAt(letter);
    
       if(randomDir === "u") {
@@ -115,6 +118,7 @@ module.exports = {
     
    return encodedTextArr.join('');
   },
+  // decoding the string
   decodeStr: (arr, str) => {
 
     let number;
